@@ -48,12 +48,12 @@ jobs:
       id: plan
       run: terraform plan -out=tfplan
 
-    - name: 'Approval for TF apply'
-      uses: chetan/invoke-approval-action@v2
-      with:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN_GITHUB }}
-        message: 'Please review and approve the Terraform plan.'
-        timeout_minutes: 30
+    # - name: 'Approval for TF apply'
+    #   uses: chetan/invoke-approval-action@v2
+    #   with:
+    #     GITHUB_TOKEN: ${{ secrets.PAT_TOKEN_GITHUB }}
+    #     message: 'Please review and approve the Terraform plan.'
+    #     timeout_minutes: 30
 
 
     - name: 'Terraform Apply'
