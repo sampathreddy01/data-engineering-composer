@@ -1,0 +1,5 @@
+infra/kinetic-bot-project.json
+infra/.terraform
+infra/.terraform.lock.hcl
+infra/terraform.tfstate.backup
+infra/terraform.tfstate
