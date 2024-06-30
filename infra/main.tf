@@ -26,8 +26,8 @@ module create_pubsub_topic {
 module create-sa {
     source = "../modules/sa"
     project_id = var.project_name
-    display_name = "Service Account for Dataproc"
-    account_id_name = var.dataproc_sa
+    display_name = each.value.service_account_displayname
+    account_id_name = each.value.service_account_usage
 }
 
 module create-dataproc {

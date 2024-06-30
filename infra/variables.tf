@@ -17,3 +17,11 @@ variable "kms_key_name" {
 variable "dataproc_sa" {
   type = string
 }
+
+variable "service_account_usage" {
+  type = list(string)
+}
+
+variable "service_account_displayname" {
+  type = list(string)
+}
