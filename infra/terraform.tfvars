@@ -8,10 +8,6 @@ kms_key_name = "test_kms_key_pubsub"
 
 dataproc_sa = "dataproc-service-account"
 
-service_account_usage = ["dataproc-service-account","composer-service-account"]
-
-service_account_displayname = ["Service Account for Dataproc","Service account for Cloud Composer"]
-
 service_accounts = {
     composer_service_account = {
         name = "composer-serice-account"
