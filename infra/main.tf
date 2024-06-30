@@ -25,16 +25,17 @@ module create_pubsub_topic {
 
 module create-sa {
     source = "../modules/sa"
+    for_each = var.service_accounts
     project_id = var.project_name
-    display_name = each.value.service_account_displayname
-    account_id_name = each.value.service_account_usage
+    display_name = each.value.display_name
+    account_id_name = each.value.name
 }
 
-module create-dataproc {
-    source = "../modules/dataproc"
-    project_id = var.project_name
-    cluster_name = "composer-test"
-    location = var.region
-    account_id = var.dataproc_sa
-    staging_bucket_name = "f51d44ed1194090c-bucket-tfstate"
-}
+# module create-dataproc {
+#     source = "../modules/dataproc"
+#     project_id = var.project_name
+#     cluster_name = "composer-test"
+#     location = var.region
+#     account_id = var.dataproc_sa
+#     staging_bucket_name = "f51d44ed1194090c-bucket-tfstate"
+# }

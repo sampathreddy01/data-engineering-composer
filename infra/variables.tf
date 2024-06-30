@@ -25,3 +25,11 @@ variable "service_account_usage" {
 variable "service_account_displayname" {
   type = list(string)
 }
+
+variable "service_accounts" {
+  type = map(object({
+    name = string
+    display_name = string
+  }))
+  
+}
