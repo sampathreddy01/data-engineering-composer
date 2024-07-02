@@ -31,11 +31,11 @@ module "create-sa" {
   account_id_name = each.value.name
 }
 
-module create-dataproc {
-    source = "../modules/dataproc"
-    project_id = var.project_name
-    cluster_name = "composer-test"
-    location = var.region
-    account_id = var.service_accounts["dataproc_service_account"].name
-    staging_bucket_name = "a5d7dd6899e4c0ee-bucket-tfstate"
+module "create-dataproc" {
+  source              = "../modules/dataproc"
+  project_id          = var.project_name
+  cluster_name        = "composer-test"
+  location            = var.region
+  account_id          = var.service_accounts["dataproc_service_account"].name
+  staging_bucket_name = "a5d7dd6899e4c0ee-bucket-tfstate"
 }
