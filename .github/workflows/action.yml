@@ -39,11 +39,11 @@ jobs:
         cd infra
         terraform init
 
-    # - name: 'Terraform Format'
-    #   id: fmt
-    #   run: |
-    #     cd infra
-    #     terraform fmt -check
+    - name: 'Terraform Format'
+      id: fmt
+      run: |
+        cd infra
+        terraform fmt -check
 
     - name: 'Terraform Validate'
       id: validate
