@@ -17,3 +17,10 @@ variable "kms_key_name" {
 variable "dataproc_sa" {
   type = string
 }
+
+variable "service_accounts" {
+  type = map(object({
+    name         = string
+    display_name = string
+  }))
+}

@@ -13,9 +13,3 @@ resource "google_kms_crypto_key" "example-key" {
     prevent_destroy = false
   }
 }
-
-# resource "google_kms_crypto_key_iam_member" "kms_key_decrypt" {
-#   crypto_key_id = google_kms_crypto_key.example-key.id
-#   role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
-#   member        = "serviceAccount:service-665450317163@gcp-sa-pubsub.iam.gserviceaccount.com"
-# }
