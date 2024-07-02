@@ -39,6 +39,7 @@ resource "google_dataproc_cluster" "mycluster" {
     gce_cluster_config {
 
       service_account = data.google_service_account.dataproc_sa.email
+      internal_ip_only = true
       service_account_scopes = [
         "cloud-platform"
       ]
