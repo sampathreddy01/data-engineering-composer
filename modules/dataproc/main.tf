@@ -19,15 +19,15 @@ resource "google_dataproc_cluster" "mycluster" {
       }
     }
 
-    worker_config {
-      num_instances    = 1
-      machine_type     = "e2-medium"
-      min_cpu_platform = "Intel Skylake"
-      disk_config {
-        boot_disk_size_gb = 30
-        num_local_ssds    = 1
-      }
-    }
+    # worker_config {
+    #   num_instances    = 2
+    #   machine_type     = "e2-medium"
+    #   min_cpu_platform = "Intel Skylake"
+    #   disk_config {
+    #     boot_disk_size_gb = 30
+    #     num_local_ssds    = 1
+    #   }
+    # }
 
     software_config {
       image_version = "2.0.35-debian10"
