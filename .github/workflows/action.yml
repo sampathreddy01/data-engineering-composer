@@ -3,7 +3,6 @@ name: Terraform CI/CD Pipeline
 on:
   push:
     branches:
-      - feature
       - main
   pull_request:
     branches:
