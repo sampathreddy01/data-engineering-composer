@@ -1,3 +1,3 @@
-data "google_service_account" "object_viewer" {
+data "google_service_account" "dataproc_sa" {
   account_id = var.account_id
 }
