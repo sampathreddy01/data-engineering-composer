@@ -20,3 +20,10 @@ variable "service_accounts" {
     display_name = string
   }))
 }
+
+variable "iam_roles" {
+  type = map(object({
+    service_account_name = string
+    roles_attached       = list(string)
+  }))
+}

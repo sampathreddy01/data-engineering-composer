@@ -13,6 +13,21 @@ module "create_kms" {
   pubsub_key     = var.kms_key_name
 }
 
+module "attach_iam_role" {
+  source = "../modules/iam"
+  for_each = {
+    for key, value in var.iam_roles :
+    key => flatten([for role in value.roles_attached : {
+      member = key.service_account_name
+      role   = role
+    }])
+  }
+
+  project_id    = var.project_name
+  account_id    = each.value.member
+  role_attached = each.value.role
+}
+
 module "create_pubsub_topic" {
   source            = "../modules/pubsub"
   project_id        = var.project_name

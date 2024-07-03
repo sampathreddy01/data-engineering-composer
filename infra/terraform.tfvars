@@ -16,3 +16,14 @@ service_accounts = {
     display_name = "Service Account for Dataproc"
   }
 }
+
+iam_roles = {
+  dataproc-service-account = {
+    service_account_name = "dataproc-service-account"
+    roles_attached       = ["roles/dataproc.worker"]
+  }
+  composer-service-account = {
+    service_account_name = "composer-service-account"
+    roles_attached       = ["roles/composer.worker", "roles/composer.viewer"]
+  }
+}
