@@ -19,5 +19,5 @@ service_accounts = {
 
 iam_roles = {
   dataproc-service-account = ["roles/dataproc.worker"]
-  composer-serice-account  = ["roles/composer.worker", "roles/composer.viewer"]
+  #   composer-serice-account  = ["roles/composer.worker", "roles/composer.viewer"]
 }
