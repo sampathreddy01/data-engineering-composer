@@ -21,9 +21,13 @@ variable "service_accounts" {
   }))
 }
 
+# variable "iam_roles" {
+#   type = map(object({
+#     service_account_name = string
+#     roles_attached       = list(string)
+#   }))
+# }
+
 variable "iam_roles" {
-  type = map(object({
-    service_account_name = string
-    roles_attached       = list(string)
-  }))
+  type = map(list(string))
 }
