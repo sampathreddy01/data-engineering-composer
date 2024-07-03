@@ -1,8 +1,8 @@
-variable "pubsub_keyring" {
+variable "keyring_name" {
   type = string
 }
 
-variable "pubsub_key" {
+variable "key_name" {
   type = string
 }
 

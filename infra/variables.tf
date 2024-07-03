@@ -6,12 +6,19 @@ variable "region" {
   type = string
 }
 
-variable "kms_keychain_name" {
-  type = string
-}
+# variable "kms_keychain_name" {
+#   type = string
+# }
 
-variable "kms_key_name" {
-  type = string
+# variable "kms_key_name" {
+#   type = string
+# }
+
+variable "kms_keys" {
+  type = map(object({
+    kms_keychain_name = string
+    kms_key_name      = string
+  }))
 }
 
 variable "service_accounts" {
