@@ -5,13 +5,22 @@ module "create_gcs" {
   storage_type = "STANDARD"
 }
 
-module "create_kms" {
+module "create_kms_1" {
   source       = "../modules/kms"
   for_each     = var.kms_keys
   project_id   = var.project_name
   location     = var.region
   keyring_name = each.value.kms_keychain_name
   key_name     = each.value.kms_key_name
+}
+
+module "create_kms" {
+  source       = "../modules/kms"
+  for_each     = var.kms_keys
+  project_id   = var.project_name
+  location     = var.region
+  keyring_name = var.kms_keychain_name
+  key_name     = var.kms_key_name
 }
 
 # module "attach_iam_role" {
@@ -46,15 +55,15 @@ module "create_kms" {
 # }
 
 
-module "create_pubsub_topic" {
-  source            = "../modules/pubsub"
-  project_id        = var.project_name
-  location          = var.region
-  kms_keychain_name = var.kms_keys["pub_sub"].kms_keychain_name
-  kms_name          = var.kms_keys["pub_sub"].kms_key_name
-  topic_name        = "composer_input_topic"
-  retention_time    = "86600s"
-}
+# module "create_pubsub_topic" {
+#   source            = "../modules/pubsub"
+#   project_id        = var.project_name
+#   location          = var.region
+#   kms_keychain_name = var.kms_keys["pub_sub"].kms_keychain_name
+#   kms_name          = var.kms_keys["pub_sub"].kms_key_name
+#   topic_name        = "composer_input_topic"
+#   retention_time    = "86600s"
+# }
 
 module "create-sa" {
   source          = "../modules/sa"
