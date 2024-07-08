@@ -5,23 +5,23 @@ module "create_gcs" {
   storage_type = "STANDARD"
 }
 
-module "create_kms_1" {
-  source       = "../modules/kms"
-  for_each     = var.kms_keys
-  project_id   = var.project_name
-  location     = var.region
-  keyring_name = each.value.kms_keychain_name
-  key_name     = each.value.kms_key_name
-}
+# module "create_kms" {
+#   source       = "../modules/kms"
+#   for_each     = var.kms_keys
+#   project_id   = var.project_name
+#   location     = var.region
+#   keyring_name = each.value.kms_keychain_name
+#   key_name     = each.value.kms_key_name
+# }
 
-module "create_kms" {
-  source       = "../modules/kms"
-  for_each     = var.kms_keys
-  project_id   = var.project_name
-  location     = var.region
-  keyring_name = var.kms_keychain_name
-  key_name     = var.kms_key_name
-}
+# module "create_kms" {
+#   source       = "../modules/kms"
+#   for_each     = var.kms_keys
+#   project_id   = var.project_name
+#   location     = var.region
+#   keyring_name = var.kms_keychain_name
+#   key_name     = var.kms_key_name
+# }
 
 # module "attach_iam_role" {
 #   source = "../modules/iam"
@@ -65,13 +65,13 @@ module "create_kms" {
 #   retention_time    = "86600s"
 # }
 
-module "create-sa" {
-  source          = "../modules/sa"
-  for_each        = var.service_accounts
-  project_id      = var.project_name
-  display_name    = each.value.display_name
-  account_id_name = each.value.name
-}
+# module "create-sa" {
+#   source          = "../modules/sa"
+#   for_each        = var.service_accounts
+#   project_id      = var.project_name
+#   display_name    = each.value.display_name
+#   account_id_name = each.value.name
+# }
 
 # module "create-dataproc" {
 #   source              = "../modules/dataproc"
