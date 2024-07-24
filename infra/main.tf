@@ -14,20 +14,20 @@ module "create_kms" {
   key_name     = each.value.kms_key_name
 }
 
-# module "attach_iam_role" {
-#   source = "../modules/iam"
-#   for_each = {
-#     for key, value in var.iam_roles :
-#     key => flatten([for role in value.roles_attached : {
-#       member = "serviceAccount:${value.service_account_name}@${var.project_name}.iam.gserviceaccount.com"
-#       role   = role
-#     }])
-#   }
+module "attach_iam_role" {
+  source = "../modules/iam"
+  for_each = {
+    for key, value in var.iam_roles :
+    key => flatten([for role in value.roles_attached : {
+      member = "serviceAccount:${value.service_account_name}@${var.project_name}.iam.gserviceaccount.com"
+      role   = role
+    }])
+  }
 
-#   project_id    = var.project_name
-#   account_id    = each.key
-#   role_attached = each.value.role
-# }
+  project_id    = var.project_name
+  account_id    = each.key
+  role_attached = each.value.role
+}
 
 # module "attach_iam_role" {
 #   source = "../modules/iam"
