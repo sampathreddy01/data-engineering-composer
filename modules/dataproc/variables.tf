@@ -8,6 +8,7 @@ variable "location" {
 
 variable "project_id" {
   type = string
+  default = "sampath-new-project"
 }
 
 variable "staging_bucket_name" {
